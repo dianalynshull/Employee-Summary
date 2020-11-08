@@ -1,6 +1,6 @@
 # Team Generator
-![Terminal](assets/terminalscreenshot.jpg)
-![Site](assets/sitescreenshot.jpg)
+![Terminal](./assets/terminalscreenshot.jpg)
+![Site](./assets/sitescreenshot.jpg)
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
