@@ -4,12 +4,65 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const employees = [];
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const managerQuestion = {
+  type: "input",
+  name: "officeNumber",
+  message: "Please enter the office number of the manager",
+};
+
+const genericQuestions = [
+  {
+    type: "input",
+    name: "name",
+    message: "Please enter the name of the Employee: ",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Please enter the ID of the Employee: ",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Please enter the email address of the Employee: ",
+  }
+];
+
+function managerQuestionFunction() {
+  return inquirer.prompt(managerQuestion);
+};
+
+function genericQuestionsFunction() {
+  return inquirer.prompt(genericQuestions);
+};
+
+async function createManager() {
+  try {
+    const managerAnswers = await managerQuestionFunction();
+    const genericManagerAnswers = await genericQuestionsFunction();
+    const manager = new Manager(genericManagerAnswers.name, genericManagerAnswers.id, genericManagerAnswers.email, managerAnswers.officeNumber);
+
+    employees.push(manager);
+    console.log(employees);
+
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+async function init() {
+  createManager();
+  
+}
+
+init();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -28,8 +81,3 @@ const render = require("./lib/htmlRenderer");
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
 
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
