@@ -1,0 +1,30 @@
+/* Universal Styling */
+html {
+  background: url("./images/heroimage.jpg") no-repeat;
+  background-size: cover;
+  overflow: auto;
+  background-color: transparent;
+  height: 100%;
+}
+body {
+background-color: transparent;
+font-family: 'Space Grotesk', sans-serif;
+letter-spacing: 2px;
+}
+/* Header Styling */
+.team-heading {
+  padding: 15px;
+  opacity: 0.9;
+}
+/* Card Styling */
+.employee-card {
+  opacity: 0.9;
+  width: 20%;
+  margin: 15px 15px;
+}
+.card-title {
+  text-align: center;
+}
+h3.card-title {
+  font-size: 1.25rem;
+}

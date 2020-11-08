@@ -58,6 +58,7 @@ const newEmployeeOptions = {
 }
 
 function managerQuestionFunction() {
+  console.log("Welcome to the Team Profile Generator! We will start by adding the manager's information: ")
   return inquirer.prompt(managerQuestion);
 };
 
@@ -104,7 +105,8 @@ async function createEmployee() {
       createEngineer();
     } else if (employeeRole.role === "Done") {
       console.log("All done!");
-      return;
+      const html = await render(employees);
+      fs.writeFileSync(outputPath, html);
     }
   } catch(err) {
     console.log(err);
@@ -139,12 +141,8 @@ async function createIntern() {
   }
 }
 
-async function init() {
-  console.log("Welcome to the Team Profile Generator! We will start by adding the manager's information: ")
-  createManager(); 
-}
+createManager(); 
 
-init();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
