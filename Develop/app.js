@@ -88,7 +88,6 @@ async function createManager() {
     const manager = new Manager(genericManagerAnswers.name, genericManagerAnswers.id, genericManagerAnswers.email, managerAnswers.officeNumber);
 
     employees.push(manager);
-    console.log(employees);
 
     createEmployee();
   } catch(err) {
@@ -120,7 +119,6 @@ async function createEngineer() {
     const engineer = new Engineer(genericEngineerAnswers.name, genericEngineerAnswers.id, genericEngineerAnswers.email, engineerAnswers.github);
 
     employees.push(engineer);
-    console.log(employees);
 
     createEmployee();
   } catch(err) {
@@ -134,7 +132,6 @@ async function createIntern() {
     const intern = new Intern(genericInternAnswers.name, genericInternAnswers.id, genericInternAnswers.email, internAnswers.school);
 
     employees.push(intern);
-    console.log(employees);
     createEmployee();
   } catch(err) {
     console.log(err);
